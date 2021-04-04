@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Styling</title>
+        <style>
+            #para
+            {
+                color: red;
+            }
+
+            p
+            {
+                color: green;
+            }
+
+            .para
+            {
+                color: blue;
+            }
+
+            .bloop 
+            {
+                text-decoration:line-through;
+            }
+
+            .hiddenish
+            {
+                display: none;
+            }
+        </style>
+        <script>
+            "use strict";
+
+            function change_1_red()
+            {
+                document.querySelector("#rand").style.color = "red";
+            }
+
+            function change_2_big()
+            {
+                document.querySelector("#para").style.fontSize = "large";
+            }
+
+            function remove_3()
+            {
+                document.querySelector(".para").style.display = "none";
+            }
+
+            function strikethrough() 
+            {
+                document.querySelector("#theHeading").classList.toggle
+                ("bloop");
+            }
+
+            function hide_buttons()
+            {
+                document.querySelector("#buttons").classList.toggle
+                ("hiddenish");
+            }
+        </script>
+    </head>
+    <body>
+        <h1 id="theHeading">Changes</h1>
+        <p id="rand">Here's a simple paragraph.</p>
+        <p id="para">Another paragraph.</p>
+        <p class="para">And a third paragraph.</p>
+        <div id="buttons">
+            <button onclick="change_1_red();">1st -> red</button>
+            <button onclick="change_2_big();">2nd -> big</button>
+            <button onclick="remove_3();">3rd -> gone</button>
+            <button onclick="strikethrough();">Cross heading out</button>
+            <button onclick="hide_buttons();">Hide buttons</button>
+        </div>
+    </body>
+</html>

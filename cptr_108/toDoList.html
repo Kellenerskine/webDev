@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <heading>
+        <title>Something random</title>
+        <style>
+            #newTaskTemplate {display: none;}
+            .completed {text-decoration: line-through;}
+        </style>
+        <script>
+            function checkForEnter()
+            {
+                if (event.keyCode == 13)
+                    addTask();
+            }
+
+            function addTask() 
+            {
+                let descriptionInput = document.querySelector("#task_description");//get task descrip
+                let copy = document.querySelector("#newTaskTemplate").cloneNode(true);//duplicate task template
+                copy.removeAttribute("id"); //remove id from copy
+                copy.querySelector("label").innerText = description;//update task descrip in copy
+                document.querySelector("#taskList").appendChild(copy);//add copy to list of tasks
+                descriptionInput.value = "";
+                descriptionInput.focus();
+            }
+
+            function completed(div)
+            {
+                div.classList.toggle("completed");
+            }
+        </script>
+    </heading>
+    <body>
+        <h1>To-Do list</h1>
+            <input id="task_description" placeholder="enter your task" onkeypress="checkForEnter();"/>
+            <button onclick="addTask();">Add</button>
+        <div id="taskList">
+            <div id="newTaskTemplate">
+                <input type="checkbox" onclick="completed(this.parentNode);"/>
+                <label>first task description</label>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            #ew_redlight {
+                background-color: red;
+                opacity: 0.1;
+                border: 50px;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+            }
+            #ew_yellowlight {
+                background-color: yellow;
+                opacity: 0.1;
+                border: 50px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+            #ew_greenlight {
+                background-color: green;
+                opacity: 0.1;
+                border: 50px;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+            }
+            #ns_redlight {
+                background-color: red;
+                opacity: 0.1;
+                border: 50px;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+            }
+            #ns_yellowlight {
+                background-color: yellow;
+                opacity: 0.1;
+                border: 50px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+            #ns_greenlight {
+                background-color: green;
+                opacity: 0.1;
+                border: 50px;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+            }
+            #container 
+            {
+                border-style: none;
+                width: 120px;
+                margin: 10px;
+                position: relative;
+                left: 200px;
+                top: 400px;
+            }
+            #ns_container {
+                border-style: none;
+                width: 120px;
+                margin: 10px;
+                position: relative;
+                left: 270px;
+                top: 85px;
+                transform: rotate(90deg);
+            }
+            body {
+                background-image: url(road_intersection.jpg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 1000px;
+                height: 800px;
+            }
+            #button{
+                position: relative;
+                left: 1000px;
+                top: 500px;
+            }
+        </style>
+        <header></header>
+        <title>Intersection</title>
+    </head>
+    <body>
+        <div id="container">
+            <div id="ew_redlight"></div>
+            <div id="ew_yellowlight"></div>
+            <div id="ew_greenlight"></div>
+        </div>
+        <div id="ns_container">
+            <div id="ns_redlight"></div>
+            <div id="ns_yellowlight"></div>
+            <div id="ns_greenlight"></div>
+        </div>
+        <div id="button">
+        <button onclick="changeLights();">Cycle</button>
+        </div>
+        <script type="text/javascript">
+            let state = 1;
+            function changeLights()
+            {
+                if (state == 1){
+                    document.getElementById("ew_greenlight").style.opacity = 1;
+                    document.getElementById("ns_redlight").style.opacity = 1;
+                    document.getElementById("ew_redlight").style.opacity = 0.1;
+                    state ++;
+                }else if (state == 2){
+                    document.getElementById("ew_yellowlight").style.opacity = 1;
+                    document.getElementById("ew_greenlight").style.opacity = 0.1;
+                    state ++;
+                }else if (state == 3){
+                    document.getElementById("ns_redlight").style.opacity = 1;
+                    document.getElementById("ew_redlight").style.opacity = 1;
+                    document.getElementById("ew_yellowlight").style.opacity = 0.1;
+                    state ++;
+                }else if (state == 4){
+                    document.getElementById("ns_greenlight").style.opacity = 1;
+                    document.getElementById("ns_redlight").style.opacity = 0.1;
+                    state ++;
+                }else if (state == 5){
+                    document.getElementById("ns_yellowlight").style.opacity = 1;
+                    document.getElementById("ns_greenlight").style.opacity = 0.1;
+                    state ++;
+                }else if (state == 6){
+                    document.getElementById("ns_yellowlight").style.opacity = 0.1;
+                    document.getElementById("ns_redlight").style.opacity = 1;
+                    state = 1
+                }
+            }
+        </script>
+    </body>
+</html>

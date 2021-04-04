@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number guessing</title>
+        <style>
+            .hidden {display:none}
+        </style>
+        <script>
+            function start(){
+                document.querySelector("#instructions").classList.add
+                ("hidden");
+                document.querySelector("#guessingSection").classList.remove
+                ("hidden");
+                makeGuess();
+            }
+
+            let lowNum = 1;
+            let highNum = 101;
+            let guess;
+            let guessNum = 0
+
+            function makeGuess(x)
+            {
+                guessNum++;
+                if (/*higher*/x == 1)
+                {
+                    lowNum = guess
+                }else if (/*lower*/x == 2)
+                {
+                    highNum = guess
+                }
+                guess = Math.floor((highNum + lowNum)/2) 
+                document.getElementById("guess").innerText = guess
+                document.getElementById("guesNum").innerText = guessNum
+            }
+
+            function gotIt() 
+            {
+                alert("Yay?")
+            }
+
+            function reset()
+            {
+                let y = confirm("Are you sure you want to restart?")
+                if (y == true){
+                    let lowNum = 1
+                    let highNum = 101
+                    let guess = 0
+                    let guessNum = 0
+                    document.getElementById("guesNum").innerText = "1"
+                    document.getElementById("guess").innerText = "50"
+                    document.querySelector("#instructions").classList.remove
+                    ("hidden");
+                    document.querySelector("#guessingSection").classList.add
+                    ("hidden");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Number guessing</h1>
+        <p id="instructions">
+            Think of a number between 1 and 100 and i will guess it. Click 
+            <button onclick="start();">Start</button> 
+            when you are ready.
+        </p>
+        <p id="guessingSection" class="hidden">My guess #<span id="guesNum">0</span> is <span id="guess">50</span> <br>
+        Is your number 
+        <button onclick="makeGuess(x=1);">Higher</button>, 
+        <button onclick="makeGuess(x=2);">Lower</button>,
+         or did I guess 
+         <button onclick="gotIt();">Correct</button>
+         ly? <br><br>
+         <button onclick="reset();">Start over?</button>
+        </p>
+    </body>
+</html>

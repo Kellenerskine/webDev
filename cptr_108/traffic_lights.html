@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            #redlight {
+                background-color: darkred;
+                border: 50px;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+            }
+            #yellowlight {
+                background-color: orange;
+                border: 50px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+            #greenlight {
+                background-color: darkgreen;
+                border: 50px;
+                border-radius: 50%;
+                height: 30px;
+                width: 30px;
+            }
+            #container 
+            {
+                border-style: none;
+                width: 120px;
+                margin: 10px;
+                position: relative;
+                left: 200px;
+                top: 300px;
+            }
+        </style>
+        <header>Traffic Lights</header>
+        <title>Traffic Lights</title>
+    </head>
+    <body>
+        <div id="container">
+            <div id="redlight"></div>
+            <div id="yellowlight"></div>
+            <div id="greenlight"></div>
+        </div>
+        <button onclick="stop();">Stop</button>
+        <button onclick="slow();">Slow</button>
+        <button onclick="go();">Go</button>
+        <script type="text/javascript">
+            stop = function(){
+                var stoplight=document.getElementById("redlight");
+                if (stoplight.style.backgroundColor == "darkred") {
+                    stoplight.style.backgroundColor="red";
+                }
+                else {
+                    stoplight.style.backgroundColor="darkred";
+                }
+            }
+            slow = function() {
+                var yellowlight=document.getElementById("yellowlight");
+                if (yellowlight.style.backgroundColor == "orange") {
+                    yellowlight.style.backgroundColor="yellow";
+                }
+                else {
+                    yellowlight.style.backgroundColor="orange";
+                }
+            }
+            go = function() {
+                var greenlight=document.getElementById("greenlight");
+                if (greenlight.style.backgroundColor == "darkgreen") {
+                    greenlight.style.backgroundColor="lightgreen";
+                }
+                else {
+                    greenlight.style.backgroundColor="darkgreen";
+                }
+            }
+        </script>
+    </body>
+</html>
